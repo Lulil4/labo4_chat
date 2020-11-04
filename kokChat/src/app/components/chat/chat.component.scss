@@ -1,0 +1,53 @@
+.containerChat{
+    height:80vh;
+}
+
+.container{
+    background-color:salmon;
+}
+
+.msjMio{
+    width:70vw;
+    border-top-left-radius: 2vw;
+    border-bottom-left-radius: 2vw;
+    border-top-right-radius: 2vw;
+    border-bottom-right-radius: 0vw;
+    margin-bottom: 2vh;
+    margin-left:10vw;
+}
+
+.msjOtro{
+    width:70vw;
+    border-top-left-radius: 2vw;
+    border-bottom-left-radius: 0vw;
+    border-top-right-radius: 2vw;
+    border-bottom-right-radius: 2vw;
+    margin-bottom: 2vh;
+    margin-right: 10vw;
+}
+
+input{
+    height:3vh;
+    width:80vw;
+}
+
+.containerInput{
+    display:flex;
+    justify-content: center;
+}
+
+.fechaOtro{
+    padding-left:10vw;
+}
+
+.mensaje{
+    margin-top:1vh;
+}
+
+p{
+    text-align: left;
+}
+
+.fechaMio{
+    margin-right:50vw;
+}

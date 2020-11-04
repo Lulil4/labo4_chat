@@ -1,0 +1,21 @@
+<div class="container" align="center">
+    <div class="containerChat">
+        <div *ngFor="let m of mensajes">
+            <mat-card class="msjOtro" *ngIf="!m.mio">
+                <strong class="usuarioOtro">{{m.usuario}}</strong>
+                <strong class="fechaOtro">{{m.fecha}}</strong>
+                <p class="mensaje">{{m.mensaje}}</p>
+            </mat-card>
+            <mat-card class="msjMio" *ngIf="m.mio">
+                <strong class="fechaMio">{{m.fecha}}</strong>
+                <strong class="usuarioMio">{{m.usuario}}</strong>
+                <p class="mensaje">{{m.mensaje}}</p>
+            </mat-card>
+        </div>
+    </div>
+    
+    <div class ="containerInput">
+        <input type="text" placeholder="Escribe un mensaje..." [(ngModel)]="mensaje">
+        <button mat-raised-button color="accent" (click)="enviarMensaje()"> Enviar</button>
+    </div>
+</div>
