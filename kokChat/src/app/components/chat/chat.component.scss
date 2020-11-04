@@ -1,5 +1,6 @@
 .containerChat{
     height:80vh;
+    overflow:auto;
 }
 
 .container{
@@ -37,7 +38,13 @@ input{
 }
 
 .fechaOtro{
-    padding-left:10vw;
+    margin-left:50vw;
+}
+
+
+.flex{
+    display:flex;
+    justify-content: left;
 }
 
 .mensaje{

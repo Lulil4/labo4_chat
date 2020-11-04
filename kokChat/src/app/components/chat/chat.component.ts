@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewChecked, ElementRef, ViewChild} from '@angular/core';
 import { MensajesService } from "../../services/mensajes.service";
 import { AuthService } from '../../services/auth.service';
 
@@ -7,14 +7,25 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss']
 })
-export class ChatComponent implements OnInit {
+export class ChatComponent implements OnInit, AfterViewChecked  {
+  @ViewChild('scrollMe') private myScrollContainer: ElementRef;
 
-   mensajes = new Array();
-   email;
-   usuario;
-   mensaje;
+  mensajes = new Array();
+  email;
+  usuario;
+  mensaje;
 
   constructor(private db: MensajesService, private auth : AuthService) { }
+
+  ngAfterViewChecked() {        
+      this.scrollToBottom();        
+  } 
+
+  scrollToBottom(): void {
+      try {
+          this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
+      } catch(err) { }                 
+  }
 
   ngOnInit(): void {
     this.email = this.auth.getUser();
@@ -49,6 +60,8 @@ export class ChatComponent implements OnInit {
       });
 
     });
+
+    this.scrollToBottom();
   }
 
   enviarMensaje(){
@@ -64,8 +77,8 @@ export class ChatComponent implements OnInit {
       console.log(milisec);
       this.db.guardarMensaje(this.mensaje, fechaTransformada, this.email, this.usuario, milisec);
       this.mensaje = "";
+    this.scrollToBottom();
     }
   }
-
   
 }

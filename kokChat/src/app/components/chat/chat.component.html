@@ -1,9 +1,11 @@
 <div class="container" align="center">
-    <div class="containerChat">
+    <div class="containerChat" #scrollMe>
         <div *ngFor="let m of mensajes">
             <mat-card class="msjOtro" *ngIf="!m.mio">
-                <strong class="usuarioOtro">{{m.usuario}}</strong>
-                <strong class="fechaOtro">{{m.fecha}}</strong>
+                <div class="flex">
+                    <strong class="usuarioOtro">{{m.usuario}}</strong>
+                    <strong class="fechaOtro">{{m.fecha}}</strong>    
+                </div>
                 <p class="mensaje">{{m.mensaje}}</p>
             </mat-card>
             <mat-card class="msjMio" *ngIf="m.mio">
